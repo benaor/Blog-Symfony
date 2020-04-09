@@ -6,11 +6,9 @@
 
 {% block body %}
 
-	<h1 class="text-center">Hello
+	<h1 class="text-center">
 		{{ controller_name }}!
 	</h1>
-
-	{% for article in articles %}
 
 		<div class="d-flex my-5 jumbotron un-article container">
 			<img src="{{ article.image }}" alt="osef" width="350" height="180">
@@ -19,13 +17,9 @@
 					{{ article.title }}
 				</h5>
 				<p class="text-center">
-					{{ article.introduction }}
+					{{ article.description}}
 				</p>
-                <a href="{{ path('blog_view', { id: article.id }) }}" class="btn btn-success my-2 col-3 mx-auto btn-lg" role="button">Lire l'article</a>  
 			</div>
 		</div>
-
-	{% endfor %}
-
 
 {% endblock %}
