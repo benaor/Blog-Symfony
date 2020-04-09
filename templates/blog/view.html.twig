@@ -10,16 +10,23 @@
 		{{ controller_name }}!
 	</h1>
 
-		<div class="d-flex my-5 jumbotron un-article container">
-			<img src="{{ article.image }}" alt="osef" width="350" height="180">
-			<div class="col-8 d-flex flex-column justify-content-between">
-				<h5 class="text-center">
-					{{ article.title }}
-				</h5>
-				<p class="text-center">
-					{{ article.description}}
-				</p>
-			</div>
-		</div>
+	<div class="my-5 jumbotron col-6 mx-auto container text-center">
+		<h5 class="text-center">
+			{{ article.title }}
+		</h5>
 
-{% endblock %}
+		<img src="{{ article.image }}" class="my-3" alt="osef" width="350" height="180">
+
+		<p class="text-center">
+			{{ article.contenu }}
+		</p>
+
+		<p>
+			sources :
+			{{ article.source }}
+		</p>
+
+		<a href="{{ path('blog') }}" class="btn btn-success my-2 col-3 mx-auto btn-lg" role="button">retour</a>
+
+	</div>
+</div>{% endblock %}
