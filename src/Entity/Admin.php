@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
  * @ORM\Table(name="`admin`")
  */
-class Admin
+class Admin implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -71,5 +72,17 @@ class Admin
         $this->email = $email;
 
         return $this;
+    }
+
+    public function getSalt(){
+        return null;
+    }
+
+    public function getRoles(){
+        return ['ROLE_ADMIN'];
+    }
+
+    public function eraseCredentials()
+    {
     }
 }
