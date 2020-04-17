@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -10,10 +12,12 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index()
+    public function admin(ArticleRepository $articleRepo)
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+        $articles = $articleRepo->findAll();
+        return $this->render('admin/admin.html.twig', [
+            'controller_name' => 'Espace Administrateur',
+            'articles' => $articles
         ]);
     }
 }
