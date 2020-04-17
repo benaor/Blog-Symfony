@@ -36,7 +36,7 @@ class AdminController extends AbstractController
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($article);
             $manager->flush();
             return $this->redirectToRoute('admin');
@@ -44,6 +44,28 @@ class AdminController extends AbstractController
 
         return $this->render('admin/new.html.twig', [
             'controller_name' => 'crée un nouvel article',
+            'form' => $form->createView()
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/{id}/edit", name="admin_edit")
+     */
+    public function edit(EntityManagerInterface $manager, Request $request, Article $article)
+    {
+        
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($article);
+            $manager->flush();
+            return $this->redirectToRoute('admin');
+        }
+
+        return $this->render('admin/edit.html.twig', [
+            'controller_name' => 'modifier le contenu de cet article ?',
             'form' => $form->createView()
         ]);
     }

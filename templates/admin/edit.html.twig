@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ controller_name }}
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+	<h1 class="text-center">
+		{{ controller_name }}!
+	</h1>
+
+	{{ form(form) }}
+
+</div>
+
+{% endblock %}

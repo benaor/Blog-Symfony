@@ -32,7 +32,7 @@
 					<td>{{ article.title }}</td>
 					<td>{{ article.introduction }}</td>
 					<td>
-						<a href="" class="btn btn-warning">
+						<a href="{{ path('admin_edit', { 'id': article.id }) }}" class="btn btn-warning">
 							<i class="fas fa-edit"></i>
 							modifier
 						</a>
