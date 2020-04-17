@@ -54,7 +54,7 @@ class AdminController extends AbstractController
      */
     public function edit(EntityManagerInterface $manager, Request $request, Article $article)
     {
-        
+
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -78,5 +78,23 @@ class AdminController extends AbstractController
         $manager->remove($article);
         $manager->flush();
         return $this->redirectToRoute('admin');
+    }
+
+    /**
+     * @Route("/admin/login", name="admin_login")
+     */
+    public function login()
+    {
+        return $this->render('admin/login.html.twig', [
+            'controller_name' => 'connexion'
+        ]);
+    }
+
+    /**
+     * @Route("/admin/logout", name="admin_logout")
+     */
+    public function logout()
+    {
+        return $this->redirectToRoute('home');
     }
 }

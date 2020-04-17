@@ -4,8 +4,23 @@
 
 {% block body %}
 
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container text-center">
+    <div class="jumbotron mt-5">
+        <h1> {{ controller_name }} </h1>
+        
+        <p class="lead">
+            Ce site a été crée dans l'objectif de découvrir le Framework symfony. <br/>
+        </p>
 
-    <p> bienvenue sur la page d'accueil </p>
+        <hr class="my-5">
+        <p class="lead">
+            <a href="{{ path('blog') }}" class="btn btn-primary btn-lg" role="button">
+               <i class="fas fa-info-circle"></i>
+                En savoir plus 
+            </a>
+        </p>
+    </div>
+</div>
+
 
 {% endblock %}
