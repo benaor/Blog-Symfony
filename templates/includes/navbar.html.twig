@@ -18,12 +18,19 @@
 
 		
 			{% if app.user %}
+
 				<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('admin_logout') }}">
-					Deconnexion
-					</a>
-				</li>
+					<li>
+						<a class="nav-link" href="{{ path('admin') }}">
+						dashboard
+						</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('admin_logout') }}">
+						Deconnexion
+						</a>
+					</li>
 				</ul>
 				{% endif %}
 

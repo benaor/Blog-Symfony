@@ -23,7 +23,7 @@ security:
             form_login:
                 login_path: admin_login
                 check_path: admin_login
-                default_target_path: adminBlog 
+                default_target_path: blog
 
             logout: 
                 path: admin_logout
